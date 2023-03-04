@@ -1,0 +1,39 @@
+.filterLists {
+  display: flex;
+  align-items: center;
+}
+
+.filterLists > div> span {
+  padding: 0 16px;
+  font-size: 14px;
+  line-height: 21px;
+  cursor: pointer;
+}
+
+.filterLists >div> span:hover {
+  color: #fff;
+}
+
+.modalContainer {
+  top: 20px;
+  left: 20px;
+  position: absolute;
+}
+
+.filterItem {
+  position: relative;
+}
+
+
+.dropdown {
+  border-bottom-color: #0000;
+  border-left-color: #0000;
+  border-right-color: #0000;
+  border-style: solid;
+  border-width:  4px 4px 0 ;
+  content: "";
+  display: inline-block;
+  height: 0;
+  vertical-align: middle;
+  width: 0;
+}

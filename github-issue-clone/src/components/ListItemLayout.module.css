@@ -1,0 +1,22 @@
+.wrapper {
+  padding: 8px 16px;
+  border: 1px solid #30363d;
+  border-bottom: none;
+  display: flex;
+}
+
+.wrapper:last-child {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border: 1px solid #30363d;
+}
+
+.wrapper:hover {
+  background-color: #161B22;
+}
+
+.checkbox {
+  margin-right: 8px;
+  margin-top: 5px;
+}
+

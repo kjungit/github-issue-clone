@@ -1,0 +1,33 @@
+.listContainer {
+  padding: 24px 32px 0;
+  height: 220px;
+  background-color: #0d1117;
+}
+
+.topSection{
+  display: flex;
+  flex-direction: space-between;
+  margin-bottom: 20px;
+}
+
+.listFilter {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  background-color: #161B22;
+  padding: 16px;
+  margin-top: 20px;
+}
+.input {
+  background-color: #010409;
+  border-radius: 6px;
+  border: 1px solid #30363d;
+  padding-left: 10px;
+  color: #8b949e;
+  width: 60%;
+  margin-right: auto;
+  box-shadow: none;
+}
+.paginationContainer {
+  display: flex;
+  justify-content: center;
+}

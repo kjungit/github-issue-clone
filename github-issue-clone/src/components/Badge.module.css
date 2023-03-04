@@ -1,0 +1,19 @@
+.badge {
+  font-size: 12px;
+  line-height: 21px;
+  border-radius: 2em;
+  padding: 2px 7px;
+  margin: 0 5px;
+}
+
+.red {
+  background-color: #3E1D20;
+  color: #FEAFAF;
+  border: 1px solid #79494C;
+}
+
+.blue {
+  background-color: #2F4D79;
+  color: #67A2F5;
+  border: 1px solid #162540;
+}
