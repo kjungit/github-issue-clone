@@ -5,7 +5,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: none;
   background-color: transparent;
   padding: 0 10px;
   padding-bottom: 15px;
@@ -13,9 +12,13 @@
   min-width: 80px;
   font-size: 14px;
   font-weight: 600;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .selected {
   border-bottom: 2px solid #f78166;
   box-sizing: border-box;
+  font-weight: 800;
 }

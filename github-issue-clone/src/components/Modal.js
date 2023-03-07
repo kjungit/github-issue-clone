@@ -9,17 +9,28 @@ export default function Modal({
   searchDataList,
   onClickCell,
 }) {
-  const [searchValue, setSearchValue] = useState("");
   const [filteredData, setFilteredData] = useState(searchDataList);
+  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
-    setFilteredData(searchDataList.filter((item) => item === searchValue));
+    setFilteredData(searchDataList);
+  }, [searchDataList]);
+
+  useEffect(() => {
+    if (searchValue === "") {
+      setFilteredData(searchDataList);
+    } else {
+      const filteredSearchList = searchDataList.filter((item) =>
+        item.name.toLowerCase().includes(searchValue.toLowerCase()),
+      );
+      setFilteredData(filteredSearchList);
+    }
   }, [searchDataList, searchValue]);
 
   return (
     <div className={cx(styles.modal, { [styles.opened]: opened })}>
       <div className={styles.header}>
-        <span>{title}</span>
+        <span>Filter by {title}</span>
         <button onClick={onClose}>
           <svg aria-label="CloseMenu" role="img" viewBox="0 0 16 16" width="16">
             <path d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path>
@@ -33,11 +44,22 @@ export default function Modal({
           onChange={(e) => setSearchValue(e.target.value)}
         />
       </div>
-      {filteredData.map((data) => (
-        <div role="button" onClick={onClickCell} key={data}>
-          {data}
-        </div>
-      ))}
+      <div className={styles.list}>
+        {filteredData.map((data) => (
+          <div
+            role="button"
+            onClick={() => {
+              const isLabel = title.toLowerCase() === "label";
+              const paramKey = isLabel ? "labels" : title.toLowerCase();
+              onClickCell({ [paramKey]: data.name });
+            }}
+            key={data.name}
+            className={styles.item}
+          >
+            {data.name}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

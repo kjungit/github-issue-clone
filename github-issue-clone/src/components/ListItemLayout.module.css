@@ -1,9 +1,10 @@
 .wrapper {
-  padding: 8px 16px;
+  padding: 14px 16px;
   border: 1px solid #30363d;
   border-bottom: none;
   display: flex;
 }
+
 
 .wrapper:last-child {
   border-bottom-left-radius: 6px;
@@ -18,5 +19,6 @@
 .checkbox {
   margin-right: 8px;
   margin-top: 5px;
+  align-self: flex-start;
 }
 

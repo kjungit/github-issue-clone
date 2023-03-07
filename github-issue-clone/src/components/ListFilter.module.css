@@ -1,6 +1,8 @@
 .filterLists {
   display: flex;
-  align-items: center;
+}
+.filterWrapper {
+  margin-left: auto;
 }
 
 .filterLists > div> span {
@@ -15,8 +17,8 @@
 }
 
 .modalContainer {
-  top: 20px;
-  left: 20px;
+  top: 30px;
+  right: 300px;
   position: absolute;
 }
 

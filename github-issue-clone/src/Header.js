@@ -27,7 +27,7 @@ export default function Header() {
           <div className={styles.circle}>7.7k</div>
         </Button>
       </div>
-      <Tabs title="title" number="5" />
+      <Tabs />
     </div>
   );
 }

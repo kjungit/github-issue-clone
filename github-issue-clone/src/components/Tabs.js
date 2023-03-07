@@ -38,7 +38,7 @@ export default function Tabs() {
   );
 }
 
-function Tab({ title, selected, onClick, number, icon }) {
+function Tab({ title, selected, onClick, icon }) {
   return (
     <li>
       <button
@@ -47,7 +47,6 @@ function Tab({ title, selected, onClick, number, icon }) {
       >
         {icon}
         <span>{title}</span>
-        {number && <div className={styles.circle}>{number}</div>}
       </button>
     </li>
   );
