@@ -5,10 +5,3 @@
 .app {
   background-color: #0E1117;
 }
-.nav {
-  padding: 16px 32px;
-  background-color: #161b22;
-  display: flex;
-  font-size : 14px;
-  align-items: center;
-}
