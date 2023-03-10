@@ -2,6 +2,7 @@ import styles from "./ListContainer.module.css";
 import Button from "./components/Button";
 import ListItem from "./components/ListItem";
 import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import ListItemLayout from "./components/ListItemLayout";
 import Pagination from "./components/Pagination";
 import ListFilter from "./components/ListFilter";
@@ -13,21 +14,22 @@ export default function ListContainer() {
   const [inputValue, setInputValue] = useState("is:pr is:open ");
   const [checked, setChecked] = useState(false);
   const [list, setList] = useState([]); /** data */
-  const [page, setPage] = useState(1);
-  const [isOpenMode, setIsOpenMode] = useState(true);
-  const [params, setParams] = useState();
   const maxPage = 10;
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const page = parseInt(searchParams.get("page") ?? 1, 10);
+  const state = searchParams.get("state");
+
   async function getData(params) {
     const data = await axios.get(`${GITHUB_API}/repos/facebook/react/issues`, {
       params,
     });
-    console.log(data);
     setList(data.data);
   }
 
   useEffect(() => {
-    getData({ page, state: isOpenMode ? "open" : "closed", ...params });
-  }, [page, isOpenMode, params]);
+    getData(searchParams);
+  }, [searchParams]);
 
   return (
     <div>
@@ -50,14 +52,14 @@ export default function ListContainer() {
         </div>
         <ListItemLayout className={styles.listFilter}>
           <OpenClosedFilters
-            isOpenMode={isOpenMode}
-            onClickMode={setIsOpenMode}
+            isOpenMode={state !== "closed"}
+            onClickMode={(state) => setSearchParams({ state })}
           />
           <ListFilter
             onChangeFilter={(params) => {
               // 필터링 된 요소에 맞게 데이터를 불러오기
               // const data = getData("필터링된 정보");
-              setParams(params);
+              setSearchParams(params);
             }}
           />
         </ListItemLayout>
@@ -76,7 +78,9 @@ export default function ListContainer() {
         <Pagination
           maxPage={maxPage}
           currentPage={page}
-          onClickPageButton={(number) => setPage(number)}
+          onClickPageButton={(pageNumber) =>
+            setSearchParams({ page: pageNumber })
+          }
         />
       </div>
     </div>

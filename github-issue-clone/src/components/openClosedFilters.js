@@ -1,20 +1,20 @@
 import cx from "clsx";
 import styles from "./openClosedFilters.module.css";
 
-export default function OpenClosedFilters({ data, isOpenMode, onClickMode }) {
+export default function OpenClosedFilters({ isOpenMode, onClickMode }) {
   return (
     <div>
       <OpenClosedFilter
         // size={openModeDataSize}
         state="Open"
         selected={isOpenMode}
-        onClick={() => onClickMode(true)}
+        onClick={() => onClickMode("open")}
       />
       <OpenClosedFilter
         // size={closedModeDataSize}
         state="Closed"
         selected={!isOpenMode}
-        onClick={() => onClickMode(false)}
+        onClick={() => onClickMode("closed")}
       />
     </div>
   );

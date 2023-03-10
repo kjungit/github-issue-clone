@@ -2,7 +2,6 @@ import styles from "./Tabs.module.css";
 import { useLocation, Link } from "react-router-dom";
 
 import cx from "clsx";
-import { useState } from "react";
 import { ReactComponent as Code } from "../images/code.svg";
 import { ReactComponent as Issues } from "../images/issue.svg";
 import { ReactComponent as Requests } from "../images/requests.svg";
@@ -44,8 +43,6 @@ const tabList = [
 ];
 
 export default function Tabs() {
-  const [selectedTabIndex, setSelectedTabIndex] = useState(0);
-
   const { pathname } = useLocation();
 
   return (
@@ -54,8 +51,7 @@ export default function Tabs() {
         <Tab
           key={`${index}`}
           item={tab}
-          selected={pathname === tab.pathname}
-          onClick={() => setSelectedTabIndex(index)}
+          selected={(pathname === "/" ? "issue" : pathname) === tab.pathname}
           icon={tab.icon}
         />
       ))}
@@ -63,14 +59,11 @@ export default function Tabs() {
   );
 }
 
-function Tab({ item, selected, onClick, icon }) {
+function Tab({ item, selected, icon }) {
   return (
     <li>
       <Link to={item.pathname}>
-        <button
-          onClick={onClick}
-          className={cx(styles.tab, { [styles.selected]: selected })}
-        >
+        <button className={cx(styles.tab, { [styles.selected]: selected })}>
           {icon}
           <span>{item.name}</span>
         </button>
