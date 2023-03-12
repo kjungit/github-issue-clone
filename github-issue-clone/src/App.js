@@ -12,8 +12,28 @@ import Wiki from "./pages/Wiki";
 import Insights from "./pages/Insights";
 import Nav from "./components/Nav";
 import Header from "./Header";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { GITHUB_API } from "./api";
 
 function App() {
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    getUserInfo();
+  }, []);
+
+  async function getUserInfo() {
+    const data = await axios.get(`${GITHUB_API}/user`, {
+      headers: {
+        Authorization: process.env.REACT_APP_GITHUB_TOKEN,
+        "Content-Type": "application/json",
+      },
+    });
+
+    setUser(data.data);
+  }
+  console.log({ user });
   return (
     <div className={styles.app}>
       <Nav />

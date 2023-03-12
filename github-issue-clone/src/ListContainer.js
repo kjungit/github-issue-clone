@@ -2,7 +2,7 @@ import styles from "./ListContainer.module.css";
 import Button from "./components/Button";
 import ListItem from "./components/ListItem";
 import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 import ListItemLayout from "./components/ListItemLayout";
 import Pagination from "./components/Pagination";
 import ListFilter from "./components/ListFilter";
@@ -40,15 +40,9 @@ export default function ListContainer() {
             value={inputValue}
             onChange={(event) => setInputValue(event.target.value)}
           />
-          <Button
-            style={{
-              fonsSize: "14px",
-              backgroundColor: "#2ea043",
-              color: "white",
-            }}
-          >
-            New issue
-          </Button>
+          <Link to="/new">
+            <Button>New issue</Button>
+          </Link>
         </div>
         <ListItemLayout className={styles.listFilter}>
           <OpenClosedFilters
