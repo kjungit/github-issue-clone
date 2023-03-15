@@ -41,7 +41,9 @@ export default function ListContainer() {
             onChange={(event) => setInputValue(event.target.value)}
           />
           <Link to="/new">
-            <Button>New issue</Button>
+            <Button style={{ backgroundColor: "#238636", color: "#fff" }}>
+              New issue
+            </Button>
           </Link>
         </div>
         <ListItemLayout className={styles.listFilter}>

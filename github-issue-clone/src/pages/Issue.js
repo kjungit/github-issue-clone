@@ -1,6 +1,4 @@
 import styles from "../App.module.css";
-import Nav from "../components/Nav";
-import Header from "../Header";
 import ListContainer from "../ListContainer";
 import Footer from "../Footer";
 

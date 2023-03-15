@@ -12,44 +12,29 @@ import Wiki from "./pages/Wiki";
 import Insights from "./pages/Insights";
 import Nav from "./components/Nav";
 import Header from "./Header";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { GITHUB_API } from "./api";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClients = new QueryClient();
 
 function App() {
-  const [user, setUser] = useState();
-
-  useEffect(() => {
-    getUserInfo();
-  }, []);
-
-  async function getUserInfo() {
-    const data = await axios.get(`${GITHUB_API}/user`, {
-      headers: {
-        Authorization: process.env.REACT_APP_GITHUB_TOKEN,
-        "Content-Type": "application/json",
-      },
-    });
-
-    setUser(data.data);
-  }
-  console.log({ user });
   return (
     <div className={styles.app}>
-      <Nav />
-      <Header />
-      <Routes>
-        <Route path="/" element={<Issue />}></Route>
-        <Route path="/issue" element={<Issue />}></Route>
-        <Route path="/new" element={<CreateIssue />}></Route>
-        <Route path="/projects" element={<Projects />}></Route>
-        <Route path="/Pulls" element={<PullRequest />}></Route>
-        <Route path="/code" element={<Code />}></Route>
-        <Route path="/security" element={<Security />}></Route>
-        <Route path="/actions" element={<Actions />}></Route>
-        <Route path="/wiki" element={<Wiki />}></Route>
-        <Route path="/insights" element={<Insights />}></Route>
-      </Routes>
+      <QueryClientProvider client={queryClients}>
+        <Nav />
+        <Header />
+        <Routes>
+          <Route path="/" element={<Issue />}></Route>
+          <Route path="/issue" element={<Issue />}></Route>
+          <Route path="/new" element={<CreateIssue />}></Route>
+          <Route path="/projects" element={<Projects />}></Route>
+          <Route path="/Pulls" element={<PullRequest />}></Route>
+          <Route path="/code" element={<Code />}></Route>
+          <Route path="/security" element={<Security />}></Route>
+          <Route path="/actions" element={<Actions />}></Route>
+          <Route path="/wiki" element={<Wiki />}></Route>
+          <Route path="/insights" element={<Insights />}></Route>
+        </Routes>
+      </QueryClientProvider>
     </div>
   );
 }

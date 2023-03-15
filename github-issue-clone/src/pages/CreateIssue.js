@@ -3,7 +3,7 @@ import cx from "clsx";
 import Button from "../components/Button";
 import { useRef } from "react";
 import TextField from "../components/TextField";
-import { useForm } from "../hooks";
+import { useForm, useUser } from "../hooks";
 import axios from "axios";
 import { GITHUB_API } from "../api";
 import { useNavigate } from "react-router";
@@ -12,6 +12,9 @@ export default function CreateIssue() {
   const inputRef = useRef();
   const textareaRef = useRef();
   const navigate = useNavigate();
+  const { isLoading, data: user } = useUser();
+  console.log(user);
+
   const { isSubmitting, inputValues, onChange, errors, handleSubmit } = useForm(
     {
       initaialValues: { title: "", body: "" },
@@ -41,10 +44,14 @@ export default function CreateIssue() {
       },
     },
   );
-
+  if (isLoading) {
+    return <>sdf</>;
+  }
   return (
     <div className={styles.container}>
-      <div className={styles.avatar}></div>
+      <div className={styles.avatar}>
+        <img src={user.avatar_url} alt="avatar" />
+      </div>
       <div className={cx(styles.inputWrapper, styles.border)}>
         <form onSubmit={handleSubmit}>
           <TextField

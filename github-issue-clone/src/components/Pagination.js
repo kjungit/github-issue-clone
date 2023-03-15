@@ -7,7 +7,7 @@ export default function Pagination({
   onClickPageButton,
 }) {
   return (
-    <div>
+    <div className={styles.pagination}>
       <button
         className={cx(styles.button, styles.blueButton)}
         disabled={currentPage === 1}
