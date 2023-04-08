@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# github-issue-clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+- ### 작업내용
 
-In the project directory, you can run:
+  - github API를 사용하여 Issues 페이지 구현 ( 새로운  Issue 등록시 현재 repo에 연결 )
+  - Open, Closed별 Issue Tap 구현
+  - Label, Milestone, Assignee 모달창 구현 및 API연결
+  - 페이지네이션
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 사용언어: React, JS
+- 라이브러리: react, axios, react-router-dom, react-query, clsx, dayjs
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+  ## Site 소개
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+  ### Issues 페이지 (facebook-react 데이터 사용)
+  
+ ![openclosed](https://user-images.githubusercontent.com/100064540/230731624-a510ab39-e272-45e8-b8d0-8536854bc801.gif)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  - Open, Closed Tap으로 확인 가능, 페이지별 라우터 구현
+  - label( ... Badge별 css 적용 )
+  
+  </br>
+  
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  ### modal 구현 filter별 API 연결
+  
+  ![modal](https://user-images.githubusercontent.com/100064540/230731810-9d6324fd-2111-491d-8cbe-33cac4d9df75.gif)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  - 모달별 filter구현 ( filter별 데이터 연결 )
+  - input 입력시 데이터가 필터링이 되도록 구현
+  - 필터링에 맞는 데이터가 List가 변경되도록 구현
+  
+  </br>
+  
+---
 
-### `npm run eject`
+  ### modal 구현 filter별 API 연결
+  ![issueAdd](https://user-images.githubusercontent.com/100064540/230732050-f519b3cd-917e-4bf9-9109-1466b38c9a50.gif)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  - 현재 repo와 API를 연결하여 new issue 작성시 현재 repo에 등록되도록 구현
+  
+  </br>
+  
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  
